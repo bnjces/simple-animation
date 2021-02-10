@@ -81,11 +81,11 @@ function hourUpdate(){
         el.classList.remove('fa-hourglass-half');
         el.classList.add('fa-hourglass-end');
         break;
-        case el.className.indexOf('fa-hourglass-end') > -1:
+        case (el.className.indexOf('fa-hourglass-end') > -1) && (el.className.indexOf('fa-rotate-270') == -1):  
         el.classList.remove('fa-hourglass-end');
         el.classList.add('fa-hourglass-end', 'fa-rotate-270');
         break;
-        case el.className.indexOf('fa-hourglass-end', 'fa-rotate-270') > -1:
+        case (el.className.indexOf('fa-hourglass-end') > -1) && (el.className.indexOf('fa-rotate-270') > -1):
         el.classList.remove('fa-hourglass-end', 'fa-rotate-270');
         el.classList.add('fa-hourglass-start');
         break;
