@@ -70,6 +70,34 @@ function thermUpdate(){
     }
 }
 
+function hourUpdate(){
+    let el = document.getElementById("hour");
+    switch(el.className.indexOf('fa-hourglass') > -1){
+        case el.className.indexOf('fa-hourglass-start') > -1:
+        el.classList.remove('fa-hourglass-start');
+        el.classList.add('fa-hourglass-half');
+        break;
+        case el.className.indexOf('fa-hourglass-half') > -1:
+        el.classList.remove('fa-hourglass-half');
+        el.classList.add('fa-hourglass-end');
+        break;
+        case el.className.indexOf('fa-hourglass-end') > -1:
+        el.classList.remove('fa-hourglass-end');
+        el.classList.add('fa-hourglass-start');
+        break;
+        /*  attempt to rotate the hourglass fails miserably:
+        case el.className.indexOf('fa-hourglass-end') > -1:
+        el.classList.remove('fa-hourglass-end');
+        el.classList.add('fa-hourglass-end&nbsp;fa-rotate-270');
+        break;
+        case el.className.indexOf('fa-hourglass-end&nbsp;fa-rotate-270') > -1:
+        el.classList.remove('fa-hourglass-end&nbsp;fa-rotate-270');
+        el.classList.add('fa-hourglass-start');
+        break;
+        */
+    }
+}
+
 
 /* setInterval will call the function ever x milliseconds
     1000 milliseconds = 1 second
@@ -86,3 +114,4 @@ var link = setInterval(linkUpdate, 1000);
 
 var batt = setInterval(battUpdate, 500);
 var therm = setInterval(thermUpdate, 750);
+var hour = setInterval(hourUpdate, 500);
