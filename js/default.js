@@ -20,7 +20,28 @@ function linkUpdate(){
 /* Start animations here */
 function battUpdate(){
     let el = document.getElementById("batt");
-    
+    switch(el.className.indexOf('fa-battery') > -1){
+        case el.className.indexOf('fa-battery-empty') > -1:
+        el.classList.remove('fa-battery-empty');
+        el.classList.add('fa-battery-quarter');
+        break;
+        case el.className.indexOf('fa-battery-quarter') > -1:
+        el.classList.remove('fa-battery-quarter');
+        el.classList.add('fa-battery-half');
+        break;
+        case el.className.indexOf('fa-battery-half') > -1:
+        el.classList.remove('fa-battery-half');
+        el.classList.add('fa-battery-three-quarters');
+        break;
+        case el.className.indexOf('fa-battery-three-quarters') > -1:
+        el.classList.remove('fa-battery-three-quarters');
+        el.classList.add('fa-battery-full');
+        break;
+        case el.className.indexOf('fa-battery-full') > -1:
+        el.classList.remove('fa-battery-full');
+        el-classList.add('fa-battery-empty');
+        break;
+    }
 }
 
 
@@ -37,4 +58,4 @@ var link = setInterval(linkUpdate, 1000);
 
 /* add new animations here */
 
-var batt = setInterval(battUpdate, 1000);
+var batt = setInterval(battUpdate, 500);
