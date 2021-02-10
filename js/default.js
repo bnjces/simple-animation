@@ -18,16 +18,23 @@ function linkUpdate(){
 }
 
 /* Start animations here */
+function battUpdate(){
+    let el = document.getElementById("batt");
+    
+}
+
 
 /* setInterval will call the function ever x milliseconds
     1000 milliseconds = 1 second
 */
 var clock = setInterval(clockUpdate, 1000); //update clock every second
 //
-// if you set the return value of setInterval to a varable
+// if you set the return value of setInterval to a variable
 // you can stop it later by calling clearInterval(var);
 // clearInterval(clock);
 //
 var link = setInterval(linkUpdate, 1000);
 
 /* add new animations here */
+
+var batt = setInterval(battUpdate, 1000);
