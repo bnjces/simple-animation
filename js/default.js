@@ -17,7 +17,9 @@ function linkUpdate(){
     }    
 }
 
+
 /* Start animations here */
+
 function battUpdate(){
     let el = document.getElementById("batt");
     switch(el.className.indexOf('fa-battery') > -1){
@@ -42,6 +44,21 @@ function battUpdate(){
         el.classList.add('fa-battery-empty');
         break;
     }
+}
+
+/* Simpler battery animation */
+function batt2Update(){
+    const fabatt = "fa-battery-"  // constant string for font awesome battery
+    let el = document.getElementById("batt2");
+    let index = el.className.indexOf(fabatt); 
+    let state = el.className.charAt(index + fabatt.length);
+    let i = 0; // starting battery
+    if(state !== '4'){
+        i = parseInt(state) + 1; // next battery state
+    }
+    el.classList.remove(fabatt + state);
+    el.classList.add(fabatt + i);
+
 }
 
 function thermUpdate(){
@@ -107,5 +124,6 @@ var link = setInterval(linkUpdate, 1000);
 /* add new animations here */
 
 var batt = setInterval(battUpdate, 500);
+var batt2 = setInterval(batt2Update, 500);
 var therm = setInterval(thermUpdate, 750);
 var hour = setInterval(hourUpdate, 500);
