@@ -39,7 +39,33 @@ function battUpdate(){
         break;
         case el.className.indexOf('fa-battery-full') > -1:
         el.classList.remove('fa-battery-full');
-        el-classList.add('fa-battery-empty');
+        el.classList.add('fa-battery-empty');
+        break;
+    }
+}
+
+function thermUpdate(){
+    let el = document.getElementById("therm");
+    switch(el.className.indexOf('fa-thermometer') > -1){
+        case el.className.indexOf('fa-thermometer-empty') > -1:
+        el.classList.remove('fa-thermometer-empty');
+        el.classList.add('fa-thermometer-quarter');
+        break;
+        case el.className.indexOf('fa-thermometer-quarter') > -1:
+        el.classList.remove('fa-thermometer-quarter');
+        el.classList.add('fa-thermometer-half');
+        break;
+        case el.className.indexOf('fa-thermometer-half') > -1:
+        el.classList.remove('fa-thermometer-half');
+        el.classList.add('fa-thermometer-three-quarters');
+        break;
+        case el.className.indexOf('fa-thermometer-three-quarters') > -1:
+        el.classList.remove('fa-thermometer-three-quarters');
+        el.classList.add('fa-thermometer-full');
+        break;
+        case el.className.indexOf('fa-thermometer-full') > -1:
+        el.classList.remove('fa-thermometer-full');
+        el.classList.add('fa-thermometer-empty');
         break;
     }
 }
@@ -59,3 +85,4 @@ var link = setInterval(linkUpdate, 1000);
 /* add new animations here */
 
 var batt = setInterval(battUpdate, 500);
+var therm = setInterval(thermUpdate, 750);
