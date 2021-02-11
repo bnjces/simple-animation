@@ -110,7 +110,41 @@ function hourUpdate(){
 }
 
 function hour2Update(){
-    const fahour = "fa-hourglass-"  // constant string for font awesome hourglass
+    if(typeof hour2Update.currentState == "undefined")
+    {
+        hour2Update.currentState = -1; // initial state so that the first state can be zero
+    }
+    hour2Update.currentState ++; // increments the state
+    /* List of States
+    0 hourglass-1 ''
+    1 hourglass-2 ''
+    2 hourglass-3 ''
+    3 hourglass-3 fa-rotate-270
+    */
+   const STATE_INDEX = 0;      // starting state equal to array
+   const CURRENT_ICON = 1;     // current icon equal to array
+   const NEXT_ICON = 2;        // icon we're changing to equal to array
+   const ROT_STATE = false;
+    let states = [ // state number, state name, state next step, rotation element (false except in state 3)
+        [0, 'fa-hourglass-1', 'fa-hourglass-2', false]
+        [1, 'fa-hourglass-2', 'fa-hourglass-3', false]
+        [2, 'fa-hourglass-3', 'fa-hourglass-3', true]
+        [3, 'fa-hourglass-3', 'fa-hourglass-1', false]
+    STATE_INDEX = states [0];
+   let el = document.getElementById("hour2");
+   for (i = 0; i < hour2Update.length; i++){
+       el.classList.remove(CURRENT_ICON);
+       el.classList.add(NEXT_ICON);
+       if(ROT_STATE = true){
+            el.classList.add(ROT_STATE);
+       }
+   } 
+}
+
+
+/* below code will function under function hour2Update(){  -- but won't rotate!
+
+ const fahour = "fa-hourglass-"  // constant string for font awesome hourglass
     let el = document.getElementById("hour2");
     let index = el.className.indexOf(fahour); 
     let state = el.className.charAt(index + fahour.length);
@@ -120,7 +154,8 @@ function hour2Update(){
     }
     el.classList.remove(fahour + state);
     el.classList.add(fahour + i);
-}
+
+*/
 
 
 /* setInterval will call the function ever x milliseconds
