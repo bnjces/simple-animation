@@ -109,6 +109,19 @@ function hourUpdate(){
     }
 }
 
+function hour2Update(){
+    const fahour = "fa-hourglass-"  // constant string for font awesome hourglass
+    let el = document.getElementById("hour2");
+    let index = el.className.indexOf(fahour); 
+    let state = el.className.charAt(index + fahour.length);
+    let i = 1; // starting hourglass
+    if(state !== '3'){
+        i = parseInt(state) + 1; // next hourglass state
+    }
+    el.classList.remove(fahour + state);
+    el.classList.add(fahour + i);
+}
+
 
 /* setInterval will call the function ever x milliseconds
     1000 milliseconds = 1 second
@@ -127,3 +140,4 @@ var batt = setInterval(battUpdate, 500);
 var batt2 = setInterval(batt2Update, 500);
 var therm = setInterval(thermUpdate, 750);
 var hour = setInterval(hourUpdate, 500);
+var hour2 = setInterval(hour2Update, 500);
